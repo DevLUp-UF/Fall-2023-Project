@@ -23,6 +23,8 @@ public class SingletonBehaviour<T> : MonoBehaviour where T : SingletonBehaviour<
         }
     }
 
+    public static bool Exists => instance;
+
     protected virtual void Awake()
     {
         Initialize();

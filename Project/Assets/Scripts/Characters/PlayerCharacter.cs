@@ -19,7 +19,7 @@ public class PlayerCharacter : Character
     {
         // If statement handles edge case
         // GameManager.Instance might be null when the scene unloads
-        if (GameManager.Instance)
+        if (GameManager.Exists)
         {
             // Unregister Player from GameManager
             GameManager.Instance.Player = null;
