@@ -1,4 +1,4 @@
-public class GameManager : Singleton<GameManager>
+public class GameManager : SingletonBehaviour<GameManager>
 {
     public PlayerCharacter Player;
 }
