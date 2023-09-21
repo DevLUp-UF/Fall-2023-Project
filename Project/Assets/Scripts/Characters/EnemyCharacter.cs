@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class EnemyCharacter : Character
 {
-    public override void TakeDamage(Enums.CharType type, int damage)
+    public override void TakeDamage(CharType type, int damage)
     {
-        if (type == Enums.CharType.Player)
+        if (type == CharType.Player)
         {
             health -= damage;
             if (health < 0)
