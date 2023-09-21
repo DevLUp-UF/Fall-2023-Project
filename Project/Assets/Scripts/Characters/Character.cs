@@ -16,13 +16,13 @@ public abstract class Character : MonoBehaviour
     protected float movementSmoothTime = 0.05f;
     private Vector3 smoothedVelocityVelocity;
 
-    protected Rigidbody rb;
+    protected Rigidbody2D rb;
 
     protected virtual void Awake()
     {
         // GetComponent allows Character to interact with the Character's Rigidbody
         // Character and Rigidbody *must* be on the same GameObject
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     protected void FixedUpdate()
