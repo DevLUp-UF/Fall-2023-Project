@@ -122,7 +122,33 @@ MonoBehaviour:
   attack: 0
   movementSpeed: 5
   movementSmoothTime: 0.05
+  type: 0
   Movement: {fileID: 3933730952913159064, guid: 63f85448751400a479735965f8eed66c, type: 3}
+<<<<<<< Updated upstream:Project/Assets/Content/Prefabs/Player.prefab
+=======
+  slash: {fileID: 0}
+--- !u!95 &-4531311277267625798
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608207955889625791}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b4c65b3822a193c4db9d3b9ca3ddf488, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+>>>>>>> Stashed changes:Project/Assets/Content/Prefabs/Characters/Player.prefab
 --- !u!4 &8886620870647156633 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4418969711015395702, guid: 5954ead809a0c544daca90d3cde097ae, type: 3}

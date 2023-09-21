@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class EnemyCharacter : Character
 {
+    private void OnEnable()
+    {
+        type = CharType.Enemy;
+    }
+
     protected override Vector2 GetMovementInput()
     {
         // Don't move if there is no player
@@ -19,7 +24,7 @@ public class EnemyCharacter : Character
         return (player.transform.position - transform.position).normalized;
     }
 
-    public override void TakeDamage(CharType type, int damage)
+    public override void TakeDamage(CharType type, float damage)
     {
         if (type == CharType.Player)
         {

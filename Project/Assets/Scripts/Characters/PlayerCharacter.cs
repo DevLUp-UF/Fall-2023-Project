@@ -8,11 +8,12 @@ public class PlayerCharacter : Character
     [Header("Player Input")]
     [SerializeField]
     protected InputActionReference Movement;
-    
+
     protected void OnEnable()
     {
         // Register Player to GameManager
         GameManager.Instance.Player = this;
+        type = CharType.Player;
     }
 
     private void OnDisable()
@@ -31,7 +32,7 @@ public class PlayerCharacter : Character
         return Movement.action.ReadValue<Vector2>();
     }
 
-    public override void TakeDamage(CharType type, int damage)
+    public override void TakeDamage(CharType type, float damage)
     {
         if (type == CharType.Enemy)
         {

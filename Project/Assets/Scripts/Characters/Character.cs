@@ -9,14 +9,14 @@ public abstract class Character : MonoBehaviour
     protected float maxHealth = 1;
     [SerializeField]
     protected float attack = 0;
-
     [SerializeField]
     protected float movementSpeed = 5;
     [SerializeField]
     protected float movementSmoothTime = 0.05f;
-    private Vector3 smoothedVelocityVelocity;
 
+    private Vector3 smoothedVelocityVelocity;
     protected Rigidbody2D rb;
+    public CharType type;
 
     protected virtual void Awake()
     {
@@ -50,5 +50,14 @@ public abstract class Character : MonoBehaviour
     protected abstract Vector2 GetMovementInput();
 
     // Other classes can call this method to damage this character
-    public abstract void TakeDamage(CharType type, int damage);
+    public abstract void TakeDamage(CharType type, float damage);
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var temp = collision.gameObject.GetComponent<Character>();
+        if (temp != null)
+        {
+            collision.gameObject.GetComponent<Character>().TakeDamage(type, attack);
+        }
+    }
 }
