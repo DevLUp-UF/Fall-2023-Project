@@ -17,8 +17,13 @@ public class PlayerCharacter : Character
 
     private void OnDisable()
     {
-        // Unregister Player from GameManager
-        GameManager.Instance.Player = null;
+        // If statement handles edge case
+        // GameManager.Instance might be null when the scene unloads
+        if (GameManager.Instance)
+        {
+            // Unregister Player from GameManager
+            GameManager.Instance.Player = null;
+        }
     }
 
     protected override Vector2 GetMovementInput()
