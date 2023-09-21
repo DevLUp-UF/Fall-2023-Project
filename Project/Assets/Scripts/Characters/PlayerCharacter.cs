@@ -1,7 +1,14 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerCharacter : Character
 {
+    // This uses the new Unity Input System, which is not installed by default
+    // To install it, press Ctrl+K and type in "Window/Package Manager", then search for "Input System"
+    [Header("Player Input")]
+    [SerializeField]
+    protected InputActionReference Movement;
+    
     protected void OnEnable()
     {
         // Register Player to GameManager
@@ -16,7 +23,7 @@ public class PlayerCharacter : Character
 
     protected override Vector2 GetMovementInput()
     {
-        return Vector2.zero;
+        return Movement.action.ReadValue<Vector2>();
     }
 
     public override void TakeDamage(CharType type, int damage)

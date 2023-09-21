@@ -12,6 +12,9 @@ public abstract class Character : MonoBehaviour
 
     [SerializeField]
     protected float movementSpeed = 5;
+    [SerializeField]
+    protected float movementSmoothTime = 0.05f;
+    private Vector3 smoothedVelocityVelocity;
 
     protected Rigidbody rb;
 
@@ -28,18 +31,17 @@ public abstract class Character : MonoBehaviour
         // Note: Modifying physics typically is done in FixedUpdate
         
         // --- Read ---
-        var movement = GetMovementInput();
+        var targetVelocity = GetMovementInput();
         
         // --- Modify ---
         // Multiply by movement speed.
-        movement *= movementSpeed;
-        
-        // Multiply by drag to counteract drag. This allows drag to control how responsive the character is.
-        // Lower drag makes the character feel more slippery, as if on ice.
-        movement *= rb.drag;
+        targetVelocity *= movementSpeed;
         
         // --- Apply ---
-        rb.AddForce(movement, ForceMode.VelocityChange);
+        // Smoothly apply target velocity
+        // This allows movement input to be responsive and smooth
+        // Alternatively, can use drag and AddForce, but I find SmoothDamp to feel better
+        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref smoothedVelocityVelocity, movementSmoothTime);
     }
 
     // Allows subclasses of Character to control movement input
