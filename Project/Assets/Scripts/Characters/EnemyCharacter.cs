@@ -4,7 +4,19 @@ public class EnemyCharacter : Character
 {
     protected override Vector2 GetMovementInput()
     {
-        return Vector2.zero;
+        // Don't move if there is no player
+        var player = GameManager.Instance.Player;
+        if (!player)
+        {
+            return Vector2.zero;
+        }
+        
+        // Otherwise, move towards player
+        //
+        // Note: To get a direction vector to A from B, use (A - B).normalized
+        // Another way to remember is direction = (to - from).normalized
+        // normalized ensures the direction vector has a length of 1
+        return (player.transform.position - transform.position).normalized;
     }
 
     public override void TakeDamage(CharType type, int damage)
