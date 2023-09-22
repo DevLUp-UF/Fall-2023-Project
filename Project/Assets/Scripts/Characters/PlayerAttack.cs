@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField]
+    private GameObject arrow;
+    [SerializeField]
     private GameObject attackArea;
     [SerializeField]
     private float attackTime = 0.25f;
@@ -21,6 +23,10 @@ public class PlayerAttack : MonoBehaviour
         {
             StartCoroutine(Attack());
         }
+        else if(Input.GetKeyDown(KeyCode.Space) && !isAttacking) 
+        {
+            StartCoroutine(AttackArrow());
+        }
     }
 
     IEnumerator Attack()
@@ -28,6 +34,17 @@ public class PlayerAttack : MonoBehaviour
         Debug.Log("Swing");
         isAttacking = true;
         attackArea.SetActive(true);
+        yield return new WaitForSeconds(attackTime);
+        Debug.Log("Finish");
+        isAttacking = false;
+        attackArea.SetActive(false);
+    }
+    
+    IEnumerator AttackArrow()
+    {
+        Debug.Log("Fire");
+        isAttacking = true;
+        Instantiate(arrow);
         yield return new WaitForSeconds(attackTime);
         Debug.Log("Finish");
         isAttacking = false;
