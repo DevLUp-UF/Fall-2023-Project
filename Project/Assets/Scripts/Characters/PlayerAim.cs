@@ -9,8 +9,8 @@ public class PlayerAim : MonoBehaviour
     // Usually I would mark these as [NonSerialized] so the data here isn't saved nor shown in the inspector
     // However, showing the data can be useful for visualization and debugging
     [Header("Debug")]
-    public Vector2 AimScreenPosition;
-    public Vector2 AimWorldPosition;
+    public Vector3 AimScreenPosition;
+    public Vector3 AimWorldPosition;
 
     private void Update()
     {

@@ -1,11 +1,22 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField]
-    private GameObject arrow;
+    private InputActionReference attack1;
+    [SerializeField]
+    private InputActionReference attack2;
+
+    [SerializeField]
+    private PlayerAim playerAim;
+
+    [FormerlySerializedAs("arrow")]
+    [SerializeField]
+    private GameObject arrowPrefab;
     [SerializeField]
     private GameObject attackArea;
     [SerializeField]
@@ -19,11 +30,11 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0) && !isAttacking) 
+        if(attack1.action.IsPressed() && !isAttacking)
         {
             StartCoroutine(Attack());
         }
-        else if(Input.GetKeyDown(KeyCode.Space) && !isAttacking) 
+        else if(attack2.action.IsPressed() && !isAttacking)
         {
             StartCoroutine(AttackArrow());
         }
@@ -44,8 +55,18 @@ public class PlayerAttack : MonoBehaviour
     {
         Debug.Log("Fire");
         isAttacking = true;
-        Instantiate(arrow);
+
+        var arrow = Instantiate(arrowPrefab);
+        var aimDirection = (playerAim.AimWorldPosition - transform.position).normalized;
+
+        // Move arrow to be in front of player
+        arrow.transform.position = transform.position + aimDirection * 1.25f;
+
+        // Calculate rotation based on player aim
+        arrow.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg);
+
         yield return new WaitForSeconds(attackTime);
+
         Debug.Log("Finish");
         isAttacking = false;
         attackArea.SetActive(false);

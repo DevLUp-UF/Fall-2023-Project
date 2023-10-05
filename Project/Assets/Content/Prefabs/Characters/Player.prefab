@@ -455,8 +455,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aim: {fileID: -3139421491144047350, guid: 63f85448751400a479735965f8eed66c, type: 3}
-  AimScreenPosition: {x: 0, y: 0}
-  AimWorldPosition: {x: 0, y: 0}
+  AimScreenPosition: {x: 0, y: 0, z: 0}
+  AimWorldPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &226899379336069989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,7 +469,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ed62d7c5134fa40b55a4a1382acc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrow: {fileID: 3911197578006586599, guid: 347b5602495f6dd489dcd07c4bea19c1, type: 3}
+  attack1: {fileID: 8331793126197155312, guid: 63f85448751400a479735965f8eed66c, type: 3}
+  attack2: {fileID: 8021289871722094734, guid: 63f85448751400a479735965f8eed66c, type: 3}
+  playerAim: {fileID: 2036563668367169880}
+  arrowPrefab: {fileID: 3911197578006586599, guid: 347b5602495f6dd489dcd07c4bea19c1, type: 3}
   attackArea: {fileID: 7222030543593250636}
   attackTime: 0.25
 --- !u!114 &2749923240295949175
