@@ -84,13 +84,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1179639478952728158, guid: 5954ead809a0c544daca90d3cde097ae, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 852465105678734416, guid: 5954ead809a0c544daca90d3cde097ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 84646841233729503}
+    - targetCorrespondingSourceObject: {fileID: 852465105678734416, guid: 5954ead809a0c544daca90d3cde097ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7373335227876748323}
   m_SourcePrefab: {fileID: 100100000, guid: 5954ead809a0c544daca90d3cde097ae, type: 3}
 --- !u!1 &1336418245347992963 stripped
 GameObject:
@@ -109,9 +113,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72436e960fad8c44f86970ce33ae1f89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
-  maxHealth: 1
-  attack: 0
+  health: 5
+  maxHealth: 5
+  meleeDamage: 1
+  collideDamage: 2
   movementSpeed: 0.5
   movementSmoothTime: 0.05
-  type: 0
+  type: 3
+--- !u!58 &7373335227876748323
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336418245347992963}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.45

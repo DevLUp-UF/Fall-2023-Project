@@ -8,9 +8,13 @@ public abstract class Character : MonoBehaviour
     [SerializeField]
     protected float maxHealth = 1;
     [SerializeField]
-    protected float attack = 0;
+    protected float meleeDamage = 1;
+    [SerializeField]
+    protected float collideDamage = 0;
     [SerializeField]
     protected float movementSpeed = 5;
+    [SerializeField]
+    protected float currMovementSpeed = 5;
     [SerializeField]
     protected float movementSmoothTime = 0.05f;
 
@@ -35,7 +39,7 @@ public abstract class Character : MonoBehaviour
         
         // --- Modify ---
         // Multiply by movement speed.
-        targetVelocity *= movementSpeed;
+        targetVelocity *= currMovementSpeed;
         
         // --- Apply ---
         // Smoothly apply target velocity
@@ -52,12 +56,17 @@ public abstract class Character : MonoBehaviour
     // Other classes can call this method to damage this character
     public abstract void TakeDamage(CharType type, float damage);
 
+    public void AlterMoveSpeed(float timesFaster)
+    {
+        currMovementSpeed = timesFaster * movementSpeed;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var temp = collision.gameObject.GetComponent<Character>();
         if (temp != null)
         {
-            collision.gameObject.GetComponent<Character>().TakeDamage(type, attack);
+            collision.gameObject.GetComponent<Character>().TakeDamage(type, collideDamage);
         }
     }
 }

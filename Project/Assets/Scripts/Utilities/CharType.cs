@@ -4,4 +4,5 @@ public enum CharType
     Player = 1,
     Neutral = 2,
     Enemy = 3,
+    Obstacle = 4
 }

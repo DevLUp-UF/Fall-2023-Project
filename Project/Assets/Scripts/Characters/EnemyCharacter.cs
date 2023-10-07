@@ -26,10 +26,10 @@ public class EnemyCharacter : Character
 
     public override void TakeDamage(CharType type, float damage)
     {
-        if (type == CharType.Player)
+        if (type == CharType.Player || type == CharType.Obstacle)
         {
             health -= damage;
-            if (health < 0)
+            if (health < 0.05)
             {
                 health = 0;
                 Destroy(gameObject);

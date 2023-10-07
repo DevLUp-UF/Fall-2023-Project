@@ -4,12 +4,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerRangedAttack : MonoBehaviour
 {
     [SerializeField]
-    private InputActionReference attack1;
-    [SerializeField]
-    private InputActionReference attack2;
+    private InputActionReference ranged;
 
     [SerializeField]
     private PlayerAim playerAim;
@@ -18,37 +16,15 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private GameObject arrowPrefab;
     [SerializeField]
-    private GameObject attackArea;
-    [SerializeField]
     private float attackTime = 0.25f;
     private bool isAttacking = false;
 
-    private void Start()
-    {
-        attackArea.SetActive(false);
-    }
-
     private void Update()
     {
-        if(attack1.action.IsPressed() && !isAttacking)
-        {
-            StartCoroutine(Attack());
-        }
-        else if(attack2.action.IsPressed() && !isAttacking)
+        if(ranged.action.IsPressed() && !isAttacking)
         {
             StartCoroutine(AttackArrow());
         }
-    }
-
-    IEnumerator Attack()
-    {
-        Debug.Log("Swing");
-        isAttacking = true;
-        attackArea.SetActive(true);
-        yield return new WaitForSeconds(attackTime);
-        Debug.Log("Finish");
-        isAttacking = false;
-        attackArea.SetActive(false);
     }
     
     IEnumerator AttackArrow()
@@ -69,6 +45,5 @@ public class PlayerAttack : MonoBehaviour
 
         Debug.Log("Finish");
         isAttacking = false;
-        attackArea.SetActive(false);
     }
 }

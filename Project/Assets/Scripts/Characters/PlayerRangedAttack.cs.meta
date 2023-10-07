@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 86ed62d7c5134fa40b55a4a1382acc21
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - attack1: {instanceID: 0}
+  - attack2: {instanceID: 0}
+  - playerAim: {instanceID: 0}
+  - arrowPrefab: {instanceID: 0}
+  - meleeAttack: {instanceID: 0}
+  - meleeDetector: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
