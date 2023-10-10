@@ -24,6 +24,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1364040575, guid: 63b8ceedf1d125743a09aa8ee53bf150, type: 3}
+    - target: {fileID: 2143524818295236354, guid: 5954ead809a0c544daca90d3cde097ae, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143524818295236354, guid: 5954ead809a0c544daca90d3cde097ae, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1697815953
+      objectReference: {fileID: 0}
     - target: {fileID: 2704697800803566908, guid: 5954ead809a0c544daca90d3cde097ae, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8
@@ -106,6 +114,7 @@ MonoBehaviour:
   meleeDamage: 1
   collideDamage: 1
   movementSpeed: 3
+  currMovementSpeed: 5
   movementSmoothTime: 0.05
   type: 3
 --- !u!58 &381399192697723722

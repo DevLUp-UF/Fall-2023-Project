@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1320581537
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f8a9b5c872a89a045817d442b5952c1c, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -115,7 +115,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   damageRefresh: 1
+  slowEffect: 0
   user: 1
 --- !u!1 &7222030543593250636
 GameObject:
@@ -193,11 +194,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   melee: {fileID: 8331793126197155312, guid: 63f85448751400a479735965f8eed66c, type: 3}
+  playerAim: {fileID: 2036563668367169880}
   meleeArea: {fileID: 3595645901189531626}
   attackTime: 0.25
+  attackRange: 0
+  attackDelay: 1
   damage: 1
   autoAttack: 1
-  user: 0
+  user: 1
   availableTargets: 1
 --- !u!58 &3127292378405298524
 CircleCollider2D:
@@ -258,6 +262,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1451872978, guid: 8c36c9f19d5f05b468f56850a37b386e, type: 3}
+    - target: {fileID: 2143524818295236354, guid: 5954ead809a0c544daca90d3cde097ae, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143524818295236354, guid: 5954ead809a0c544daca90d3cde097ae, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1697815953
+      objectReference: {fileID: 0}
     - target: {fileID: 4418969711015395702, guid: 5954ead809a0c544daca90d3cde097ae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -378,8 +390,9 @@ MonoBehaviour:
   meleeDamage: 0
   collideDamage: 0
   movementSpeed: 5
+  currMovementSpeed: 5
   movementSmoothTime: 0.05
-  type: 0
+  type: 1
   Movement: {fileID: 3933730952913159064, guid: 63f85448751400a479735965f8eed66c, type: 3}
 --- !u!95 &-4531311277267625798
 Animator:

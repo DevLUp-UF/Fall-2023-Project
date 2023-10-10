@@ -17,6 +17,8 @@ public class Melee : MonoBehaviour
     [SerializeField]
     private float attackRange;
     [SerializeField]
+    private float attackDelay;
+    [SerializeField]
     private float damage;
     [SerializeField] 
     private bool autoAttack;
@@ -109,6 +111,7 @@ public class Melee : MonoBehaviour
         yield return new WaitForSeconds(attackTime);
         Destroy(meleeEffect);
         Debug.Log("Melee Attack Ended");
+        yield return new WaitForSeconds(attackDelay);
         availableTargets++;
     }
 }
