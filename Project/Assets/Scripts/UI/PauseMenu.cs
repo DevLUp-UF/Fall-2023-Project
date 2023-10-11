@@ -1,28 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
+    private void OnEnable()
+    {
+        menuHolder.gameObject.SetActive(false);
+    }
+
     [SerializeField]
     private GameObject menuHolder;
+    bool menuIsOpen = false;
 
-
-    public void EnableMenu(bool enable)
+    private void ChangeMenu()
     {
-        menuHolder.SetActive(enable);
+        menuHolder.SetActive(menuIsOpen);
+    }
+
+    public void ToggleMenu()
+    {
+        menuIsOpen = !menuIsOpen;
+        ChangeMenu();
     }
 
     // Update is called once per frame
     public void PauseGame()
     {
-        EnableMenu(true);
+        menuIsOpen = true;
+        ChangeMenu();
         Time.timeScale = 0.0f;
     }
 
     public void UnpauseGame()
     {
-        EnableMenu(false);
+        menuIsOpen = false;
+        ChangeMenu();
         Time.timeScale = 1.0f;
     }
 }

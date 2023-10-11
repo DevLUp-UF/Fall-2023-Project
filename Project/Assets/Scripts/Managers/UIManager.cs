@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class UIManager : SingletonBehaviour<UIManager>
 {
     [SerializeField]
     private PauseMenu pauseMenu;
+    [SerializeField]
+    private InputActionReference pause;
 
-    public void Init()
+    private void Update()
     {
-        ShowPauseMenu(false);
-    }
-
-    public void ShowPauseMenu(bool shouldShow = true)
-    {
-        pauseMenu.EnableMenu(shouldShow);
+        if (pause.action.WasPerformedThisFrame())
+        {
+            pauseMenu.ToggleMenu();
+        }
     }
 }
