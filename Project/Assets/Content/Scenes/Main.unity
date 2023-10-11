@@ -26370,7 +26370,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3595645901189531626, guid: 9c25661c1d38d7e40b0eb21a653c9bbf, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c25661c1d38d7e40b0eb21a653c9bbf, type: 3}
@@ -26406,8 +26407,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  attackTime: 0
+  attackRange: 0
+  attackDelay: 0
   damageRefresh: 1
   slowEffect: 0
+  autoAttack: 0
   user: 4
 --- !u!58 &1728362197
 CircleCollider2D:

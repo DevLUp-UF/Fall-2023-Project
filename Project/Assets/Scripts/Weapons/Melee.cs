@@ -13,24 +13,42 @@ public class Melee : MonoBehaviour
     [SerializeField]
     private GameObject meleeArea;
     [SerializeField]
-    private float attackTime;
-    [SerializeField]
-    private float attackRange;
-    [SerializeField]
-    private float attackDelay;
-    [SerializeField]
-    private float damage;
-    [SerializeField] 
-    private bool autoAttack;
-    [SerializeField]
     private CharType user;
     [SerializeField]
     private int availableTargets = 1;
 
     private RaycastHit2D[] hits;
+    private float attackTime;
+    private float attackRange;
+    private float attackDelay;
+    private float damage;
+    private bool autoAttack;
 
     private void Awake()
     {
+        try
+        {
+            //Set melee strength to the strength of the weapon
+            AreaOfDamage damageObject = meleeArea.GetComponent<AreaOfDamage>();
+            attackTime = damageObject.GetAttackTime();
+            attackRange = damageObject.GetAttackRange();
+            attackDelay = damageObject.GetAttackDelay();
+            damage = damageObject.GetAttackDamage();
+            autoAttack = damageObject.IsAutoAttack();
+
+            //So weapons can be for any user type without needing different prefabs
+            if (user != damageObject.GetUserType())
+            {
+                damageObject.SetUserType(user);
+            }
+        }
+        catch (System.Exception)
+        {
+            throw new System.NotImplementedException("Damage Area does not have Area of Damage to make it work.");
+        }
+
+
+        //Hardcoded lower limit to auto-attack range
         if(attackRange < 0.5f) 
         {
             attackRange = 0.5f;
