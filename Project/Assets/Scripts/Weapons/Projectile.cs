@@ -48,7 +48,7 @@ public class Projectile : MonoBehaviour
             }
             Debug.Log("Shot landed");
             target.TakeDamage(user, damage);
-            Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
 }
