@@ -9,6 +9,10 @@ public class GameManager : SingletonBehaviour<GameManager>
     public void ExitGame()
     {
         Time.timeScale = 1.0f;
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
 }
