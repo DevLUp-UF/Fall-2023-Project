@@ -6,6 +6,10 @@ public class SoundManager : SingletonBehaviour<SoundManager>
 {
     [SerializeField]
     private AudioClip uiPauseOpen;
+    [SerializeField]
+    private AudioClip uiPauseClose;
+    [SerializeField]
+    private AudioClip buttonPush;
 
     [SerializeField]
     private List<AudioClip> menuMusicList;
@@ -16,12 +20,15 @@ public class SoundManager : SingletonBehaviour<SoundManager>
     private AudioSource musicSource;
     [SerializeField]
     private AudioSource sfxSource;
-    private bool isInGame = false;
+
+    // Since there is no Main menu, it should start as true
+    // Also, main menu == pause menu currently...
+    private bool isInGame = true;
 
 
     public void InitSingleton()
     {
-        isInGame = false;
+        isInGame = true;
     }
 
     // Make sure appropriate music is playing at all times
@@ -47,9 +54,30 @@ public class SoundManager : SingletonBehaviour<SoundManager>
 
     public void UIPauseOpen() { PlayClip(uiPauseOpen, sfxSource); }
 
+    public void UIPauseClose() { PlayClip(uiPauseClose, sfxSource); }
+
+    public void PushButton() { PlayClip(buttonPush, sfxSource); }
+
     // Plays the given clip in the given source
-    private void PlayClip(AudioClip clip, AudioSource src)
+    public void PlayClip(AudioClip clip, AudioSource src)
     {
+        src.clip = clip;
+        src.Play();
+    }
+
+    public void PlayClip(AudioClip clip, AudioEventType type)
+    {
+        AudioSource src;
+
+        switch (type)
+        {
+            case AudioEventType.music:
+                src = musicSource;
+                break;
+            default: 
+                src = sfxSource; 
+                break;
+        }
         src.clip = clip;
         src.Play();
     }

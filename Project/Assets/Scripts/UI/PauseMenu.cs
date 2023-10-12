@@ -5,15 +5,15 @@ using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
-    private void OnEnable()
-    {
-        menuHolder.gameObject.SetActive(false);
-    }
 
     [SerializeField]
     private GameObject menuHolder;
     bool menuIsOpen = false;
 
+    private void OnEnable()
+    {
+        menuHolder.gameObject.SetActive(false);
+    }
     private void ChangeMenu()
     {
         menuHolder.SetActive(menuIsOpen);
@@ -22,22 +22,30 @@ public class PauseMenu : MonoBehaviour
 
     public void ToggleMenu()
     {
-        menuIsOpen = !menuIsOpen;
-        ChangeMenu();
+        if (!menuIsOpen)
+        {
+            PauseGame();
+        }
+        else
+        {
+            UnpauseGame();
+        }
     }
 
     // Update is called once per frame
     public void PauseGame()
     {
+        SoundManager.Instance.UIPauseOpen();
         menuIsOpen = true;
         ChangeMenu();
-        Time.timeScale = 0.0f;
+        GameManager.Instance.Freeze();
     }
 
     public void UnpauseGame()
     {
+        SoundManager.Instance.UIPauseClose();
         menuIsOpen = false;
         ChangeMenu();
-        Time.timeScale = 1.0f;
+        GameManager.Instance.Thaw();
     }
 }

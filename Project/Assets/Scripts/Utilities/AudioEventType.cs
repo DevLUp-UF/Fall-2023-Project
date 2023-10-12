@@ -4,6 +4,6 @@ using UnityEngine;
 
 public enum AudioEventType
 {
-    MainMenu = 0,
-    Playing = 1,
+    sfx = 0,
+    music = 1,
 }
