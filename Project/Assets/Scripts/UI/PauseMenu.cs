@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
     private void ChangeMenu()
     {
         menuHolder.SetActive(menuIsOpen);
+        SoundManager.Instance.FlipGameState();
     }
 
     public void ToggleMenu()

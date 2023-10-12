@@ -13,11 +13,9 @@ public class SoundManager : SingletonBehaviour<SoundManager>
     private List<AudioClip> gameMusicList;
 
     [SerializeField]
-    private AudioSource uiSource;
-    [SerializeField]
     private AudioSource musicSource;
     [SerializeField]
-    private AudioSource gameSource;
+    private AudioSource sfxSource;
     private bool isInGame = false;
 
 
@@ -47,7 +45,7 @@ public class SoundManager : SingletonBehaviour<SoundManager>
             PlayClip(menuMusicList[Random.Range(0, menuMusicList.Count)], musicSource);
     }
 
-    public void UIPauseOpen() { PlayClip(uiPauseOpen, uiSource); }
+    public void UIPauseOpen() { PlayClip(uiPauseOpen, sfxSource); }
 
     // Plays the given clip in the given source
     private void PlayClip(AudioClip clip, AudioSource src)
