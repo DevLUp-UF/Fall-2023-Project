@@ -6,6 +6,8 @@ using UnityEngine;
 public class AreaOfDamage : MonoBehaviour
 {
     [SerializeField]
+    private AudioClip clip;
+    [SerializeField]
     private float damage = 1;
     [SerializeField]
     private float attackTime;
@@ -93,6 +95,7 @@ public class AreaOfDamage : MonoBehaviour
 
     IEnumerator DamageTicks(GameObject charObj, Character character)
     {
+        SoundManager.Instance.PlayClip(clip, AudioEventType.sfx);
         Debug.Log("DamageTick Called for " + charObj.tag);
         character.TakeDamage(user, damage);
         yield return new WaitForSeconds(damageRefresh);

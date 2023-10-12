@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85311c5204533804cb7a5cfda1890df9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 6076888f450be5b458e495641ecd4706, type: 3}
   damage: 1
   attackTime: 0.25
   attackRange: 0.5
