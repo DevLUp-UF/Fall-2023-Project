@@ -17,3 +17,5 @@ MonoBehaviour:
     prefab: {fileID: 1336418245347992963, guid: 245ec57fdc00a5c4d86172e6fbd56de0, type: 3}
   - minWave: 5
     prefab: {fileID: 1336418245347992963, guid: cbaf38120a638b14e9d988ea0fde9781, type: 3}
+  - minWave: 5
+    prefab: {fileID: 1562759545480864122, guid: f78b4cbfc7174ba4099774b5cfc82144, type: 3}

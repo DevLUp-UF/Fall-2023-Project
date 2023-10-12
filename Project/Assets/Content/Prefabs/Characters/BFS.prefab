@@ -126,7 +126,7 @@ MonoBehaviour:
   meleeDamage: 1
   collideDamage: 2
   movementSpeed: 0.5
-  currMovementSpeed: 5
+  currMovementSpeed: 0.5
   movementSmoothTime: 0.05
   type: 3
 --- !u!58 &7373335227876748323
