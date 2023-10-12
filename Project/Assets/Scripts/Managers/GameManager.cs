@@ -20,6 +20,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         melee = map.actions.FindAction("Attack1");
         range = map.actions.FindAction("Attack2");
         aim = map.actions.FindAction("Aim");
+        SpawnManager.Instance.StartGame();
     }
 
     public void Freeze()

@@ -97,10 +97,10 @@ public class Melee : MonoBehaviour
                 target = col.gameObject.GetComponent<Character>();
             }
 
-            Debug.Log("Auto Attack Triggered");
+            //Debug.Log("Auto Attack Triggered");
             if (col.gameObject.GetComponent<Character>() != null) 
             {
-                Debug.Log("Hit?");
+                //Debug.Log("Hit?");
                 StartCoroutine(Attack(col.GetComponent<Transform>()));
             }
         }
@@ -108,7 +108,7 @@ public class Melee : MonoBehaviour
 
     IEnumerator Attack(Transform target)
     {
-        Debug.Log("Melee Attack Started");
+        //Debug.Log("Melee Attack Started");
         var meleeEffect = Instantiate(meleeArea);
 
         if (autoAttack)
@@ -128,7 +128,7 @@ public class Melee : MonoBehaviour
         availableTargets--;
         yield return new WaitForSeconds(attackTime);
         Destroy(meleeEffect);
-        Debug.Log("Melee Attack Ended");
+        //Debug.Log("Melee Attack Ended");
         yield return new WaitForSeconds(attackDelay);
         availableTargets++;
     }

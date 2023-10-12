@@ -96,7 +96,7 @@ public class AreaOfDamage : MonoBehaviour
     IEnumerator DamageTicks(GameObject charObj, Character character)
     {
         SoundManager.Instance.PlayClip(clip, AudioEventType.sfx);
-        Debug.Log("DamageTick Called for " + charObj.tag);
+         //Debug.Log("DamageTick Called for " + charObj.tag);
         character.TakeDamage(user, damage);
         yield return new WaitForSeconds(damageRefresh);
         if (damaging.Contains(charObj))
